@@ -10,13 +10,22 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] GameObject gameOverPanel;
 
-    public static bool isDead = false; // ใช้ static เพื่อให้ script อื่นเข้าถึงได้ง่าย
+    public static bool isDead = false;
 
     void Start()
     {
         currentHealth = maxHealth;
         isDead = false;
         UpdateHealthText();
+        Time.timeScale = 1f; // เผื่อ Restart มาแล้วหยุดเวลาไว้ก่อนหน้า
+    }
+
+    void Update()
+    {
+        if (isDead && Input.GetKeyDown(KeyCode.R))
+        {
+            RestartGame();
+        }
     }
 
     public void TakeDamage(int amount)
@@ -43,19 +52,20 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Player Dead");
         isDead = true;
         gameOverPanel.SetActive(true);
-    }
 
-    void Update()
-    {
-        if (isDead && Input.GetKeyDown(KeyCode.R))
+        // หยุดเวลาในเกม
+        Time.timeScale = 0f;
+
+        // หยุดนาฬิกา (GameTimer)
+        GameTimer timer = FindObjectOfType<GameTimer>();
+        if (timer != null)
         {
-            RestartGame();
+            timer.StopTimer();
         }
     }
 
     public void RestartGame()
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
