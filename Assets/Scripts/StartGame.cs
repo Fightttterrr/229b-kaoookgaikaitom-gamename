@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
-    public string sceneToLoad = "SampleScenes";
+    public string sceneToLoad = "SampleScene";
 
     public void StartButtonClicked()
     {
