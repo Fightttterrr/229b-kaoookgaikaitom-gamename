@@ -31,6 +31,9 @@ public class Projectile2d : MonoBehaviour
                 
                 //add projectile velocity vector to the bullet rigidbody
                 shootBullet.linearVelocity = projectileVelocity;
+                
+                //destroy bullet after 5 seconds
+                Destroy(shootBullet.gameObject, 5f);
             }
         }
     }

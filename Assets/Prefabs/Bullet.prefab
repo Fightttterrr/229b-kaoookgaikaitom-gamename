@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3711877565713753767}
   - component: {fileID: 9041650171033933097}
   - component: {fileID: 2998655477876748239}
+  - component: {fileID: 2663143620789202387}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 520210145
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 951609572868057831, guid: fa495854f11d355478842a33c82f4f52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -152,3 +153,17 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.145
+--- !u!114 &2663143620789202387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3230029967579726423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20d234a0f5f6583429635a88365248f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 20
+  enemyTag: Enemy

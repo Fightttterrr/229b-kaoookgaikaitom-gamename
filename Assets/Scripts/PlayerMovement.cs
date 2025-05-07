@@ -22,17 +22,12 @@ public class PlayerMovement : MonoBehaviour
     
     void Update()
     {
+        // หยุดเคลื่อนไหวถ้า Player ตาย
+        if (PlayerHealth.isDead) return;
+        
         //Wall with addforce
         moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
         rb2d.AddForce(moveInput * speed);
-        
-        /*
-        //Walk
-        move = Input.GetAxis("Horizontal"); //x - axis
-        
-        //use rigidbody2d to move left and right (x-axis)
-        rb2d.linearVelocity = new Vector2(move * speed, rb2d.linearVelocity.y);
-        */
         
         //Jump
         if (Input.GetButtonDown("Jump") && !isJumping)
